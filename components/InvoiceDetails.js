@@ -33,7 +33,8 @@ const InvoiceDetails = () => {
             <>
                 <Text style={styles.RowTwoText}>{item.id}</Text>
                 <Text style={styles.RowTwoText}>{item.treatments}</Text>
-                <Text style={styles.RowTwoText}>{item.UnitCost}</Text>
+                <Text style={styles.RowTwoText}>
+                    {item.UnitCost}</Text>
                 <Text style={styles.RowTwoText}>{item.Qty}</Text>
                 <Text style={styles.RowTwoText}>{item.UnitCost * item.Qty}</Text>
             </>
