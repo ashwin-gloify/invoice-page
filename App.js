@@ -1,26 +1,25 @@
 import React from 'react';
-import {SafeAreaView, StatusBar, View, Text, StyleSheet} from 'react-native';
-import Header from './components/Header';
-import PatientInformation from './components/PatientInformation';
-import InvoiceHeader from './components/InvoiceHeader';
-import InvoiceDetails from './components/InvoiceDetails';
+import {SafeAreaView,ScrollView, StatusBar, View, StyleSheet} from 'react-native';
+import HeaderComponent from './src/Components/HeaderComponent';
+import Index from './Screens/InvoiceScreen/Index';
 
 const App = () => {
   return (
     <SafeAreaView>
       <StatusBar />
-      <Header />
-      <View style={styles.container}>
-        <PatientInformation />
-        <InvoiceHeader />
-        <InvoiceDetails />
-      </View>
+      <ScrollView>
+        <HeaderComponent />
+        <View style={styles.container}>
+          <Index />
+        </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
   },
 });
 
