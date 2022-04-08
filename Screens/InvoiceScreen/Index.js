@@ -101,10 +101,13 @@ const Index = () => {
           )}
         </View>
         <View style={styles.invoiceDetailsTableRowThree}>
-            <View style = {styles.totalLabel}>
-              <Text style={styles.RowText}>Total</Text>
-            </View>
-            <View style= {styles.detailsRow}  >
+              <View style={styles.invoiceItems}>
+                <Text style={styles.RowText}>Total</Text>
+              </View>
+              <View styles={styles.invoiceItems}>
+                <Text style={styles.RowText}>100</Text>
+              </View>
+
               <View style={styles.invoiceItems}>
                 <Text style={styles.RowText}>750.00</Text>
               </View>
@@ -114,7 +117,6 @@ const Index = () => {
               <View style={styles.invoiceItems}>
                 <Text style={styles.RowText}>750.00</Text>
               </View>
-            </View>
         </View>
             {/* Payment details Header */}
           <View style= {styles.paymentHead}>

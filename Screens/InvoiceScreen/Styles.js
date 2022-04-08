@@ -84,51 +84,45 @@ const styles = StyleSheet.create({
     padding: 10,
     flexDirection: 'row',
     justifyContent: 'space-evenly',
-    flexWrap:'wrap',
+    flexWrap: 'wrap',
     backgroundColor: '#b9bab8',
   },
   invoiceDetailsTableRowTwo: {
     padding: 10,
   },
   detailsRow: {
-    flex: 2,
     flexDirection: 'row',
-    justifyContent: 'space-evenly',
+    justifyContent: 'space-around',
     flexWrap: 'wrap',
-    borderBottom: 1,
   },
   RowText: {
-    flex: 1,
     color: '#000',
     textAlign: 'center',
   },
   invoiceDetailsTableRowThree: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
+    padding: 10,
   },
-  totalLabel: {
-    flex: 1,
-    justifyContent:'flex-start',
-  },
-  paymentHead:{
+
+  paymentHead: {
     marginTop: 15,
-    padding:10,
+    padding: 10,
   },
   paymentDetails: {
-    flexDirection:'row',
-    justifyContent:'space-evenly',
-    marginBottom:25,
-    padding:10,
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    marginBottom: 25,
+    padding: 10,
   },
-  paymentContainer:{
-    margin:10,
+  paymentContainer: {
+    margin: 10,
   },
-  invoiceItems:{
-    alignItems:'center',
-    justifyContent:'space-around',
-    flex:1,
-  }
-
+  invoiceItems: {
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    flex: 1,
+  },
 });
 
 export default styles;
