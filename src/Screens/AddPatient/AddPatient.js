@@ -1,19 +1,26 @@
 /* eslint-disable prettier/prettier */
 import React, {useState} from 'react';
-import {View, TextInput, Text, TouchableOpacity, SegmentedControlIOSBase} from 'react-native';
+import {View, TextInput, Text, TouchableOpacity} from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import styles from './Style';
+import { Picker } from '@react-native-picker/picker';
 
 const AddPatient = () => {
   const [fName, setFName] = useState('');
   const [lName, setLName] = useState('');
   const [contact, setContact] = useState('');
   const [gender, setGender] = useState('');
-  const [dob, setDob] = useState('');
+  const [show, setShow] = useState(false);
   const [age, setAge] = useState('');
   const [email, setEmail] =  useState('');
+  const [relation, setRelation] = useState('');
+  const [careGender, setCareGender] = useState('');
+
+  const handleCareGender = (item) =>{
+    setCareGender(item);
+  }
   const handleGender = (item) => {
     setGender(item);
   };
@@ -197,17 +204,233 @@ const AddPatient = () => {
         </View>
       </View>
       {/* add care giver */}
-      <View style={styles.bottomContainer}>
-        <View style={styles.col1Bottom} />
-        <View style={styles.col2Bottom}>
-          <View style={styles.iconContainer}>
-            <Ionicons name="add-circle" style={styles.iconStyle} size={25} />
+      {show ? (
+        <View style={styles.careContainer}>
+          <View style={styles.formHead}>
+            <View style={styles.formHeadCol1}>
+              <Text style={styles.textHeader}>
+                Care Giver
+                <Text style={styles.textRequired}> * </Text>
+              </Text>
+            </View>
+            <TouchableOpacity
+              style={styles.formHeadCol2}
+              onPress={() => {
+                setShow(!show);
+              }}>
+              <AntDesign name="minus" size={35} />
+            </TouchableOpacity>
           </View>
-          <View>
-            <Text style={styles.iconStyle}>Add Care Giver</Text>
+          <View style={styles.formContainer}>
+            <View style={styles.inputCareContainer}>
+              <View style={styles.labelCol}>
+                <View style={styles.careLabelInput}>
+                  <Text style={styles.careLabelText}>
+                    Care Giver's Mobile Number
+                  </Text>
+                </View>
+                <View style={styles.col1Bottom} />
+              </View>
+              <View style={styles.textInputStyle}>
+                <TextInput
+                  style={styles.input}
+                  keyboardType="numeric"
+                />
+              </View>
+            </View>
+
+            <View style={styles.inputCareContainer}>
+              <View style={styles.labelCol}>
+                <View style={styles.careLabelInput}>
+                  <Text style={styles.careLabelText}>Care Giver's Email</Text>
+                </View>
+                <View style={styles.col1Bottom} />
+              </View>
+              <View style={styles.textInputStyle}>
+                <TextInput
+                  style={styles.input}
+                />
+              </View>
+            </View>
+            <View style={styles.inputCareContainer}>
+              <View style={styles.labelCol}>
+                <View style={styles.careLabelInput}>
+                  <Text style={styles.careLabelText}>
+                    Care Giver's First Name
+                  </Text>
+                </View>
+                <View style={styles.col1Bottom} />
+              </View>
+              <View style={styles.textInputStyle}>
+                <TextInput
+                  // value={CareNumber}
+                  // onChangeText={(e) => setFName(e.target.value)}
+                  style={styles.input}
+                />
+              </View>
+            </View>
+            <View style={styles.inputCareContainer}>
+              <View style={styles.labelCol}>
+                <View style={styles.careLabelInput}>
+                  <Text style={styles.careLabelText}>
+                    Care Giver's Last Name
+                  </Text>
+                </View>
+                <View style={styles.col1Bottom} />
+              </View>
+              <View style={styles.textInputStyle}>
+                <TextInput
+                  // value={CareNumber}
+                  // onChangeText={(e) => setFName(e.target.value)}
+                  style={styles.input}
+                />
+              </View>
+            </View>
+
+            <View style={styles.inputCareContainer}>
+              <View style={styles.labelCol}>
+                <View style={styles.careLabelInput}>
+                  <Text style={styles.careLabelText}>
+                    Relationship with Patient
+                  </Text>
+                </View>
+                <View style={styles.col1Bottom} />
+              </View>
+              <View style={styles.pickerStyle}>
+                <Picker
+                  selectedValue={relation}
+                  itemStyle={styles.itemStyle}
+                  onValueChange={(itemValue, itemIndex) =>
+                    setRelation(itemValue)
+                  }>
+                  <Picker.Item label="Brother" value="Brother" />
+                  <Picker.Item label="Mother" value="Mother" />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.textLeft}>
+              <Text style={styles.careLabelText}>
+                Care Giver's Gender
+                <Text style={styles.textRequired}>*</Text>
+              </Text>
+            </View>
+            <View style={styles.genderCareContainer}>
+              <TouchableOpacity
+                style={
+                  careGender === 'male'
+                    ? styles.genderCareCardSelected
+                    : styles.genderCareCard
+                }
+                onPress={() => handleCareGender('male')}>
+                <View style={styles.cardCare}>
+                  <View style={styles.iconContainer}>
+                    <MaterialCommunityIcons
+                      name="gender-male"
+                      size={25}
+                      style={careGender === 'male' ? styles.iconStyle : ''}
+                    />
+                  </View>
+                  <View style={styles.textContainer}>
+                    <Text
+                      style={careGender === 'male'? styles.selectedText : styles.cardText}>
+                      Male
+                    </Text>
+                  </View>
+                </View>
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                style={
+                  careGender === 'female'
+                    ? styles.genderCareCardSelected
+                    : styles.genderCareCard
+                }
+                onPress={() => handleCareGender('female')}>
+                <View style={styles.cardCare}>
+                  <View style={styles.iconContainer}>
+                    <MaterialCommunityIcons
+                      name="gender-female"
+                      size={25}
+                      style={careGender === 'female' ? styles.iconStyle : ''}
+                    />
+                  </View>
+                  <View style={styles.textContainer}>
+                    <Text
+                      style={
+                        careGender === 'female'
+                          ? styles.selectedText
+                          : styles.cardText
+                      }>
+                      Female
+                    </Text>
+                  </View>
+                </View>
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                style={
+                  careGender === 'other'
+                    ? styles.genderCareCardSelected
+                    : styles.genderCareCard
+                }
+                onPress={() => handleCareGender('other')}>
+                <View style={styles.cardCare}>
+                  <View style={styles.iconContainer}>
+                    <MaterialCommunityIcons
+                      name="gender-male-female-variant"
+                      size={25}
+                      style={careGender === 'other' ? styles.iconStyle : ''}
+                    />
+                  </View>
+                  <View style={styles.textContainer}>
+                    <Text
+                      style={
+                        careGender === 'other'
+                          ? styles.selectedText
+                          : styles.cardText
+                      }>
+                      Other
+                    </Text>
+                  </View>
+                </View>
+              </TouchableOpacity>
+            </View>
+            <View style={styles.inputCareContainer}>
+              <View style={styles.labelCol}>
+                <View style={styles.careLabelInput}>
+                  <Text style={styles.careLabelText}>
+                    Care Giver's Age <Text style={styles.textRequired}>*</Text>
+                  </Text>
+                </View>
+                <View style={styles.col1Bottom} />
+              </View>
+              <View style={styles.textInputStyle}>
+                <TextInput
+                  // value={CareNumber}
+                  // onChangeText={(e) => setFName(e.target.value)}
+                  style={styles.input}
+                  keyboardType="numeric"
+                />
+              </View>
+            </View>
           </View>
         </View>
-      </View>
+      ) : (
+        <View style={styles.bottomContainer}>
+          <View style={styles.col1Bottom} />
+          <TouchableOpacity
+            style={styles.col2Bottom}
+            onPress={() => setShow(!show)}>
+            <View style={styles.iconContainer}>
+              <Ionicons name="add-circle" style={styles.iconStyle} size={25} />
+            </View>
+            <View>
+              <Text style={styles.iconStyle}>Add Care Giver</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+      )}
+
       {/* profile pic  */}
       <View style={styles.bottomContainer}>
         <View style={styles.col1Bottom} />

@@ -21,8 +21,8 @@ const styles = StyleSheet.create({
     marginVertical: 12,
   },
   input: {
-    height: 50,
     width: '90%',
+    height: 50,
     borderWidth: 1,
     padding: 10,
     borderRadius: 5,
@@ -58,7 +58,20 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     marginHorizontal: 12,
   },
+  genderCareContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    marginHorizontal: 15,
+    marginVertical:12,
+  },
   genderCard: {
+    borderWidth: 1,
+    borderRadius: 5,
+    borderColor: '#c9c8c7',
+  },
+  genderCareCard: {
     borderWidth: 1,
     borderRadius: 5,
     borderColor: '#c9c8c7',
@@ -70,6 +83,13 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     alignItems: 'center',
   },
+  cardCare: {
+    flex: 1,
+    flexDirection: 'row',
+    paddingHorizontal: 12,
+    paddingVertical: 7,
+    alignItems: 'center',
+  },
   iconContainer: {
     paddingHorizontal: 2,
   },
@@ -77,6 +97,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 2,
   },
   genderCardSelected: {
+    borderWidth: 1,
+    borderRadius: 5,
+    borderColor: '#078c3f',
+    backgroundColor: '#e4f7ec',
+  },
+  genderCareCardSelected: {
     borderWidth: 1,
     borderRadius: 5,
     borderColor: '#078c3f',
@@ -97,21 +123,21 @@ const styles = StyleSheet.create({
   dobContainer2: {
     flex: 1,
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'space-evenly',
     alignItems: 'center',
-    marginHorizontal: 12,
+    marginHorizontal: 10,
   },
 
-  ageContainer: {
-    flex: 1,
-  },
-  emailContainer: {
-    marginHorizontal: 12,
-  },
-  emailTextContainer: {
-    flex: 1,
-    alignItems: 'center',
-  },
+  // ageContainer: {
+  //   flex: 1,
+  // },
+  // emailContainer: {
+  //   marginHorizontal: 12,
+  // },
+  // emailTextContainer: {
+  //   flex: 1,
+  //   alignItems: 'center',
+  // },
   labelText: {
     color: '#000',
   },
@@ -199,13 +225,57 @@ const styles = StyleSheet.create({
     zIndex: 100,
     backgroundColor: 'white',
     paddingHorizontal: 10,
-    width:'30%'
-    // marginLeft: 35,
-    // paddingRight: 15,
-    // alignItems:'flex-start',
+    width: '30%',
   },
-  labelMobile:{
-    width:'35%',
+  labelMobile: {
+    width: '35%',
+  },
+  careContainer: {
+    flex: 1,
+    marginHorizontal: 15,
+    marginVertical: 12,
+  },
+  formContainer: {
+    borderWidth: 1,
+    borderRadius: 5,
+    borderColor: '#c9c8c7',
+  },
+  formHead: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  formHeadCol1: {
+    paddingHorizontal: 25,
+    justifyContent: 'flex-start',
+  },
+  careLabelInput: {
+    flex: 1.25,
+    top: 20,
+    left: 30,
+    zIndex: 100,
+    paddingHorizontal: 10,
+    backgroundColor: 'white',
+  },
+  labelCol: {
+    flex: 1,
+    flexDirection: 'row',
+  },
+  inputCareContainer: {
+    marginVertical: -5,
+    marginBottom:5,
+  },
+  pickerStyle: {
+    borderWidth: 1,
+    borderRadius: 5,
+    width: '90%',
+    borderColor: '#c9c8c7',
+    marginLeft: 18,
+    marginVertical: 12,
+  },
+  itemStyle: {
+    color: '#000',
   },
 });
 

@@ -23,6 +23,8 @@ target 'invoicePage' do
 
   pod 'react-native-safe-area-context', :path => '../node_modules/react-native-safe-area-context'
 
+  pod 'RNCPicker', :path => '../node_modules/@react-native-picker/picker'
+
   target 'invoicePageTests' do
     inherit! :complete
     # Pods for testing
