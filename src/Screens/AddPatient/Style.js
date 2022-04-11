@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-around',
     marginHorizontal: 15,
-    marginVertical:12,
+    marginVertical: 12,
   },
   genderCard: {
     borderWidth: 1,
@@ -140,6 +140,8 @@ const styles = StyleSheet.create({
   // },
   labelText: {
     color: '#000',
+    zIndex: 100,
+    backgroundColor: '#fff',
   },
   bottomContainer: {
     flex: 1,
@@ -226,6 +228,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     paddingHorizontal: 10,
     width: '30%',
+    // backgroundColor:'red',
   },
   labelMobile: {
     width: '35%',
@@ -264,7 +267,7 @@ const styles = StyleSheet.create({
   },
   inputCareContainer: {
     marginVertical: -5,
-    marginBottom:5,
+    marginBottom: 5,
   },
   pickerStyle: {
     borderWidth: 1,
