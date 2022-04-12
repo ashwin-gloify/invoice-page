@@ -14,8 +14,6 @@ import {
 // import AddPatient from './src/Screens/AddPatient/AddPatient';
 import ConsultationList from './src/Screens/Consultation/ConsultationList';
 import FabModule from './src/Components/FabModule/FabModule';
-import {FAB} from '@rneui/base/dist/FAB';
-import AntDesign from 'react-native-vector-icons/AntDesign';
 // import InvestigationForm from './src/Screens/Investigations/InvestigationForm';
 const App = () => {
   const [visible, setVisible] = useState(false);
