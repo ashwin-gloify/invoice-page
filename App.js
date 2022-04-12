@@ -16,7 +16,6 @@ import ConsultationList from './src/Screens/Consultation/ConsultationList';
 import FabModule from './src/Components/FabModule/FabModule';
 // import InvestigationForm from './src/Screens/Investigations/InvestigationForm';
 const App = () => {
-  const [visible, setVisible] = useState(false);
   return (
     <SafeAreaView>
       <StatusBar />
