@@ -7,6 +7,7 @@ const UserData = [
     location: 'Bengaluru',
     time: '10:00 AM',
     gender: 'M',
+    day: 'Today',
   },
   {
     id: 2,
@@ -15,6 +16,7 @@ const UserData = [
     location: 'Bengaluru',
     time: '10:00 AM',
     gender: 'M',
+    day: 'Today',
   },
   {
     id: 3,
@@ -23,6 +25,7 @@ const UserData = [
     location: 'Bengaluru',
     time: '10:00 AM',
     gender: 'M',
+    day: 'Tomorrow',
   },
   {
     id: 4,
@@ -31,6 +34,7 @@ const UserData = [
     location: 'Bengaluru',
     time: '10:00 AM',
     gender: 'M',
+    day: 'Tomorrow',
   },
   {
     id: 5,
@@ -39,6 +43,7 @@ const UserData = [
     location: 'Bengaluru',
     time: '10:00 AM',
     gender: 'M',
+    day: 'Today',
   },
   {
     id: 6,
@@ -47,6 +52,7 @@ const UserData = [
     location: 'Bengaluru',
     time: '10:00 AM',
     gender: 'M',
+    day: 'Tomorrow',
   },
   {
     id: 7,
@@ -55,6 +61,7 @@ const UserData = [
     location: 'Bengaluru',
     time: '10:00 AM',
     gender: 'M',
+    day: 'Today',
   },
   {
     id: 8,
@@ -63,6 +70,7 @@ const UserData = [
     location: 'Bengaluru',
     time: '10:00 AM',
     gender: 'M',
+    day: 'Tomorrow',
   },
   {
     id: 9,
@@ -71,6 +79,7 @@ const UserData = [
     location: 'Bengaluru',
     time: '10:00 AM',
     gender: 'M',
+    day: 'Today',
   },
   {
     id: 10,
@@ -79,6 +88,7 @@ const UserData = [
     location: 'Bengaluru',
     time: '10:00 AM',
     gender: 'F',
+    day: 'Tomorrow',
   },
   {
     id: 11,
@@ -87,6 +97,7 @@ const UserData = [
     location: 'Bengaluru',
     time: '10:00 AM',
     gender: 'F',
+    day: 'Today',
   },
   {
     id: 12,
@@ -95,6 +106,7 @@ const UserData = [
     location: 'Bengaluru',
     time: '10:00 AM',
     gender: 'F',
+    day: 'Today',
   },
 ];
 

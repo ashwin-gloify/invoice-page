@@ -23,56 +23,80 @@ import Tab1 from './src/Screens/tab1/Tab1';
 import Tab2 from './src/Screens/tab2/Tab2';
 import FlatConsultation from './src/Screens/Consultation/FlatlistConsultation';
 import {createDrawerNavigator} from '@react-navigation/drawer';
+import SectionlistConsultation  from './src/Screens/Consultation/SectionlistConsultation';
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
 
 const App = () => {
- 
-  return (
-    <NavigationContainer>
+
+  const DrawerNav = () =>{
+    return (
+      // <NavigationContainer>
       <Drawer.Navigator initialRouteName="Consultation">
         <Drawer.Screen name="AddPatient" component={AddPatient} />
         <Drawer.Screen name="Consultation" component={ConsultationList} />
-        <Drawer.Screen name="FlatListConsultation" component={FlatConsultation} />
+        <Drawer.Screen
+          name="FlatListConsultation"
+          component={FlatConsultation}
+        />
+        <Drawer.Screen
+          name="SectionListConsultation"
+          component={SectionlistConsultation}
+        />
+        <Drawer.Screen
+          name="Tabs"
+          component={TabNav}
+        />
       </Drawer.Navigator>
-      </NavigationContainer>
-      // <Tab.Navigator>
-      //  <Tab.Screen 
-      //     options={{headerShown: false}}
-      //     name="tab1"
-      //     component={Tab1}
-      //   />
-      //   <Tab.Screen
-      //     options={{headerShown: false}}
-      //     name="tab2"
-      //     component={Tab2}
-      //   />
-      //{/* </Tab.Navigator>  */}
-     // {/* 
-      // <Stack.Navigator initialRouteName="ConsultationList">
-      //   <Stack.Screen
-      //     name="ConsultationList"
-      //     component={ConsultationList}
-      //     options={{headerShown: false}}
-      //   />
-      //   <Stack.Screen
-      //     name="InvoiceScreen"
-      //     component={Index}
-      //     options={{headerShown: false}}
-      //   />
-      //   <Stack.Screen
-      //     name="AddPatient"
-      //     component={AddPatient}
-      //     options={{headerShown: false}}
-      //   />
-      //   <Stack.Screen
-      //     name="Investigation"
-      //     component={InvestigationForm}
-      //     option={{title: 'Investigation Form'}}
-      //   />
-      // </Stack.Navigator> */}
-    
+      // </NavigationContainer>
+    );
+  };
+
+  const TabNav = () =>{
+    return (
+      // <NavigationContainer>
+        <Tab.Navigator>
+          <Tab.Screen
+            options={{headerShown: false}}
+            name="tab1"
+            component={Tab1}
+          />
+          <Tab.Screen
+            options={{headerShown: false}}
+            name="tab2"
+            component={Tab2}
+          />
+        </Tab.Navigator>
+      // </NavigationContainer>
+    );
+  };
+  return (
+
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen
+          name="Home"
+          component={DrawerNav}
+          options={{headerShown: false}}
+        />
+        {/* <Stack.Screen
+          name="InvoiceScreen"
+          component={Index}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="AddPatient"
+          component={AddPatient}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Investigation"
+          component={InvestigationForm}
+          option={{title: 'Investigation Form'}}
+        /> */}
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
 

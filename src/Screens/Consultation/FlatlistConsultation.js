@@ -6,6 +6,21 @@ import UserData from '../../Data/UserData';
 import FabModule from '../../Components/FabModule/FabModule';
 
 const FlatConsultation =  ({navigation}) =>{
+  const callPatient = () =>{
+    return(
+            <View>
+                <Button title="Call" />
+            </View>
+        )
+  }
+
+    const footerItem = ()=>{
+        return(
+            <View>
+                <Button title="Call" />
+            </View>
+        )
+    }
     const renderList = ({item}) =>{
         return (
              <View style={Styles.patientContainer}>
@@ -36,7 +51,7 @@ const FlatConsultation =  ({navigation}) =>{
                 <View style={Styles.col2}>
                   <Text style={Styles.col2Text}>{item.time}</Text>
                 </View>
-              </View>
+            </View>
         );
     };
     return (
@@ -49,6 +64,9 @@ const FlatConsultation =  ({navigation}) =>{
                 data =  {UserData}
                 renderItem ={renderList}
                 keyExtractor={item=> item.id}
+                ListFooterComponent={footerItem}
+                ItemSeparatorComponent ={callPatient}
+                maxToRenderPerBatch={5}
             />
         </View>
       <FabModule/>
@@ -78,13 +96,17 @@ const Styles = StyleSheet.create({
     fontSize: 28,
     lineHeight: 42,
   },
+  listContainer:{
+    marginBottom:'20%',
+  },
 
     patientContainer: {
-      flex: 1,
-      flexDirection: 'row',
-      marginVertical: 12,
-      marginHorizontal: 12,
-      alignItems: 'center',
+        flex: 1,
+        flexDirection: 'row',
+        marginVertical: 12,
+        marginHorizontal: 12,
+        alignItems: 'center',
+    //   backgroundColor:'red',
     },
   col1: {
     flex: 2,
@@ -133,6 +155,7 @@ const Styles = StyleSheet.create({
     color: '#247470',
     fontFamily: 'Poppins',
   },
+
 });
 
 
