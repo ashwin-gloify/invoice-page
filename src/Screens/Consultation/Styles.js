@@ -75,25 +75,7 @@ const Styles = StyleSheet.create({
     color: '#247470',
     fontFamily: 'Poppins',
   },
-//   FabView: {
-//     position: 'absolute',
-//     left:'80%',
-//     top: '80%',
-//     zIndex: 100,
-//     height: 68,
-//     width: 68,
-//   },
-//   FabStyle: {
-//     shadowColor: '#93BEBC',
-//     color: '#247470',
-//     shadowOffset: {
-//       width: 0,
-//       height: 3,
-//     },
-//     shadowOpacity: 0.27,
-//     shadowRadius: 4.65,
-//     elevation: 6,
-//   },
+
 });
 
 export default Styles;

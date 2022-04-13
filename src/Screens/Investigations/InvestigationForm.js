@@ -1,12 +1,12 @@
 /* eslint-disable prettier/prettier */
 import React, {useState} from 'react';
-import {View, Text, TextInput,StyleSheet, TouchableOpacity} from 'react-native';
+import {View, Text, TextInput,StyleSheet, TouchableOpacity, SafeAreaView, Button} from 'react-native';
 import { panGestureHandlerCustomNativeProps } from 'react-native-gesture-handler/lib/typescript/handlers/PanGestureHandler';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import styles from '../AddPatient/Style';
+import { ScrollView } from 'react-native-gesture-handler';
 
-
-const InvestigationForm = () =>{
+const InvestigationForm = ({navigation}) =>{
     // const [select, setSelect] = useState('');
     const [labTest, setLabTest] = useState('');
     const [custom , setCustom] = useState(false);
@@ -22,87 +22,104 @@ const InvestigationForm = () =>{
     };
 
     return (
-      <View style={Styles.containerMain}>
-        {/* input form */}
-        <View style={Styles.formInput}>
-          <View style={Styles.formLabel}>
-            <Text style={Styles.labelText}>
-              Lab Test <Text style={Styles.isRequired}>*</Text>
-            </Text>
+      <SafeAreaView>
+        <ScrollView>
+          <View style={Styles.containerMain}>
+            {/* input form */}
+            <View style={Styles.formInput}>
+              <View style={Styles.formLabel}>
+                <Text style={Styles.labelText}>
+                  Lab Test <Text style={Styles.isRequired}>*</Text>
+                </Text>
+              </View>
+              <View style={Styles.inputField}>
+                <TextInput
+                  defaultValue={labTest}
+                  onChangeText={() => setLabTest(labTest)}
+                  style={Styles.input}
+                />
+              </View>
+            </View>
+            {/* Instructions */}
+            <View style={Styles.titleLabel}>
+              <Text style={Styles.titleText}>Instructions</Text>
+            </View>
+            <View style={Styles.instructionsContainer}>
+              <View style={Styles.row}>
+                <TouchableOpacity
+                  style={
+                    instruction === 'Before Food'
+                      ? Styles.SelectedItem
+                      : Styles.item1
+                  }
+                  onPress={() => handleInstrucion(selectionInstruction.item1)}>
+                  <Text style={Styles.itemText}>Before Food</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={
+                    instruction === 'After Food'
+                      ? Styles.SelectedItem
+                      : Styles.item2
+                  }
+                  onPress={() => handleInstrucion(selectionInstruction.item2)}>
+                  <Text style={Styles.itemText}>After Food</Text>
+                </TouchableOpacity>
+              </View>
+              <View style={Styles.row}>
+                <TouchableOpacity
+                  style={
+                    instruction === 'Empty Stomach'
+                      ? Styles.SelectedItem
+                      : Styles.item1
+                  }
+                  onPress={() => handleInstrucion(selectionInstruction.item3)}>
+                  <Text style={Styles.itemText}>Empty Stomach</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={custom ? Styles.SelectedItem : Styles.item2}
+                  onPress={() => setCustom(!custom)}>
+                  <Text style={Styles.itemText}>Custom Instruction</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+            {/* custom instruction input */}
+            <View style={Styles.formInput}>
+              <View style={Styles.formLabel}>
+                <Text style={Styles.labelText}>Custom Instruction</Text>
+              </View>
+              <View style={Styles.inputField}>
+                <TextInput
+                  editable={custom}
+                  onChangeText={() => setInstruction(instruction)}
+                  style={Styles.input}
+                />
+              </View>
+            </View>
+            {/* breakLine */}
+            <View style={Styles.breakLine} />
+            <View style={styles.btnPrimary}>
+              <Button
+                title="Go to Invoices"
+                onPress={() => navigation.navigate('InvoiceScreen')}
+              />
+            </View>
           </View>
-          <View style={Styles.inputField}>
-            <TextInput
-              defaultValue={labTest}
-              onChangeText={() => setLabTest(labTest)}
-              style={Styles.input}
-            />
-          </View>
-        </View>
-        {/* Instructions */}
-        <View style={Styles.titleLabel}>
-          <Text style={Styles.titleText}>Instructions</Text>
-        </View>
-        <View style={Styles.instructionsContainer}>
-          <View style={Styles.row}>
-            <TouchableOpacity
-              style={
-                instruction === 'Before Food'
-                  ? Styles.SelectedItem
-                  : Styles.item1
-              }
-              onPress={() => handleInstrucion(selectionInstruction.item1)}>
-              <Text style={Styles.itemText}>Before Food</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={
-                instruction === 'After Food'
-                  ? Styles.SelectedItem
-                  : Styles.item2
-              }
-              onPress={() => handleInstrucion(selectionInstruction.item2)}>
-              <Text style={Styles.itemText}>After Food</Text>
-            </TouchableOpacity>
-          </View>
-          <View style={Styles.row}>
-            <TouchableOpacity
-              style={
-                instruction === 'Empty Stomach'
-                  ? Styles.SelectedItem
-                  : Styles.item1
-              }
-              onPress={() => handleInstrucion(selectionInstruction.item3)}>
-              <Text style={Styles.itemText}>Empty Stomach</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={custom? Styles.SelectedItem : Styles.item2} onPress={()=>setCustom(!custom)}>
-              <Text style={Styles.itemText}>Custom Instruction</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-        {/* custom instruction input */}
-        <View style={Styles.formInput}>
-          <View style={Styles.formLabel}>
-            <Text style={Styles.labelText}>Custom Instruction</Text>
-          </View>
-          <View style={Styles.inputField}>
-            <TextInput
-              editable = {custom}
-              onChangeText={() => setInstruction(instruction)}
-              style={Styles.input}
-            />
-          </View>
-        </View>
-        {/* breakLine */}
-        <View style={Styles.breakLine} />
-      </View>
+        </ScrollView>
+      </SafeAreaView>
     );
 }
 
 
 const Styles = StyleSheet.create({
+  // container: {
+  //   flex: 1,
+  //   backgroundColor: '#fff',
+  // },
   containerMain: {
     flex: 1,
-    marginHorizontal: wp('5%'),
-    marginVertical: hp('5%'),
+    paddingHorizontal: wp('5%'),
+    paddingVertical: hp('5%'),
+    backgroundColor: '#fff',
   },
   labelText: {
     fontFamily: 'Roboto',
@@ -135,9 +152,9 @@ const Styles = StyleSheet.create({
     borderColor: '#BEC2C4',
     borderRadius: 6,
   },
-  input:{
-      color:'#000',
-      paddingLeft: wp('2%'),
+  input: {
+    color: '#000',
+    paddingLeft: wp('2%'),
   },
   titleLabel: {
     marginTop: hp('3%'),
@@ -162,7 +179,6 @@ const Styles = StyleSheet.create({
     marginVertical: hp('2%'),
   },
   item1: {
-
     width: wp('42%'),
     height: hp('7%'),
     borderWidth: 1,

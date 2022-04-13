@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
   },
   inputContainer: {
     flex: 1,
-    marginVertical: 12,
+    marginVertical: '7%',
   },
   inputContainerMain: {
     flex: 2,
@@ -90,6 +90,10 @@ const styles = StyleSheet.create({
     paddingVertical: 7,
     alignItems: 'center',
   },
+  cardText: {
+    color: '#333333',
+  },
+
   iconContainer: {
     paddingHorizontal: 2,
   },
@@ -111,13 +115,16 @@ const styles = StyleSheet.create({
   iconStyle: {
     color: '#078c3f',
   },
+  icon: {
+    color: '#3333',
+  },
   selectedText: {
     color: '#078c3f',
   },
   iconColor: {
     color: '#078c3f',
     position: 'absolute',
-    bottom: 12,
+    bottom: '42%',
     right: 20,
   },
   dobContainer2: {
@@ -212,10 +219,11 @@ const styles = StyleSheet.create({
   labelView: {
     Position: 'absolute',
     flex: 1,
-    top: 20,
+    top: '20%',
     zIndex: 100,
     backgroundColor: '#fff',
     justifyContent: 'flex-start',
+    alignItems: 'center',
     marginLeft: 30,
     paddingHorizontal: 10,
     right: 10,
@@ -253,6 +261,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 25,
     justifyContent: 'flex-start',
   },
+  iconClose:{
+    color:'#000',
+  },
   careLabelInput: {
     flex: 1.25,
     top: 20,
@@ -260,6 +271,9 @@ const styles = StyleSheet.create({
     zIndex: 100,
     paddingHorizontal: 10,
     backgroundColor: 'white',
+  },
+  careLabelText: {
+    color: '#000',
   },
   labelCol: {
     flex: 1,

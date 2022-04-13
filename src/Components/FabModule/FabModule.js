@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import React, {useState} from 'react';
-import {Text, View, TouchableOpacity, Modal} from 'react-native';
+import {Text, View, Modal} from 'react-native';
 import Styles  from './Styles' ;
 import {FAB} from '@rneui/base/dist/FAB';
 import AntDesign from 'react-native-vector-icons/AntDesign';

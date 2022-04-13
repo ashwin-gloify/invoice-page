@@ -1,36 +1,76 @@
-import React, { useState } from 'react';
+/* eslint-disable prettier/prettier */
+import React from 'react';
 import {
   SafeAreaView,
   ScrollView,
   StatusBar,
   View,
-  Text,
   StyleSheet,
-  Modal,
 } from 'react-native';
-// import HeaderAddPatient from './src/Components/Header/HeaderAddPatient';
-// import Index from './Screens/InvoiceScreen/Index';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import HeaderAddPatient from './src/Components/Header/HeaderAddPatient';
+import Index from './Screens/InvoiceScreen/Index';
 // import HeaderComponent from './src/Components/HeaderComponent';
-// import AddPatient from './src/Screens/AddPatient/AddPatient';
+import AddPatient from './src/Screens/AddPatient/AddPatient';
 import ConsultationList from './src/Screens/Consultation/ConsultationList';
-import FabModule from './src/Components/FabModule/FabModule';
-// import InvestigationForm from './src/Screens/Investigations/InvestigationForm';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+// import {getHeaderTitle} from '@react-navigation/elements';
+import InvestigationForm from './src/Screens/Investigations/InvestigationForm';
+import { TabItem } from '@rneui/base/dist/Tab/Tab.Item';
+// import { Tab } from '@rneui/base';
+import Tab1 from './src/Screens/tab1/Tab1';
+import Tab2 from './src/Screens/tab2/Tab2';
+import {createDrawerNavigator} from '@react-navigation/drawer';
+const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
+const Drawer = createDrawerNavigator();
+
 const App = () => {
+ 
   return (
-    <SafeAreaView>
-      <StatusBar />
-      <ScrollView>
-        {/* <HeaderAddPatient /> */}
-        {/* <HeaderComponent /> */}
-        <View style={styles.container}>
-          {/* <Index /> */}
-          {/* <AddPatient /> */}
-          <ConsultationList />
-          {/* <InvestigationForm /> */}
-        </View>
-      </ScrollView>
-      <FabModule />
-    </SafeAreaView>
+    <NavigationContainer>
+      <Drawer.Navigator initialRouteName="Consultation">
+        <Drawer.Screen name="AddPatient" component={AddPatient} />
+        <Drawer.Screen name="Consultation" component={ConsultationList} />
+      </Drawer.Navigator>
+      </NavigationContainer>
+      // <Tab.Navigator>
+      //  <Tab.Screen 
+      //     options={{headerShown: false}}
+      //     name="tab1"
+      //     component={Tab1}
+      //   />
+      //   <Tab.Screen
+      //     options={{headerShown: false}}
+      //     name="tab2"
+      //     component={Tab2}
+      //   />
+      //{/* </Tab.Navigator>  */}
+     // {/* 
+      // <Stack.Navigator initialRouteName="ConsultationList">
+      //   <Stack.Screen
+      //     name="ConsultationList"
+      //     component={ConsultationList}
+      //     options={{headerShown: false}}
+      //   />
+      //   <Stack.Screen
+      //     name="InvoiceScreen"
+      //     component={Index}
+      //     options={{headerShown: false}}
+      //   />
+      //   <Stack.Screen
+      //     name="AddPatient"
+      //     component={AddPatient}
+      //     options={{headerShown: false}}
+      //   />
+      //   <Stack.Screen
+      //     name="Investigation"
+      //     component={InvestigationForm}
+      //     option={{title: 'Investigation Form'}}
+      //   />
+      // </Stack.Navigator> */}
+    
   );
 };
 

@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
@@ -81,14 +82,15 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
   },
   invoiceDetailsTableRowOne: {
-    padding: 10,
+    paddingVertical: 10,
     flexDirection: 'row',
     justifyContent: 'space-evenly',
-    flexWrap: 'wrap',
+    alignItems: 'center',
+    // flexWrap: 'wrap',
     backgroundColor: '#b9bab8',
   },
   invoiceDetailsTableRowTwo: {
-    padding: 10,
+    paddingVertical: 10,
   },
   detailsRow: {
     flexDirection: 'row',
@@ -102,7 +104,7 @@ const styles = StyleSheet.create({
   invoiceDetailsTableRowThree: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    padding: 10,
+    paddingVertical: 10,
   },
 
   paymentHead: {
@@ -120,8 +122,9 @@ const styles = StyleSheet.create({
   },
   invoiceItems: {
     alignItems: 'center',
-    justifyContent: 'space-around',
+    justifyContent: 'center',
     flex: 1,
+    paddingHorizontal: 5,
   },
 });
 
