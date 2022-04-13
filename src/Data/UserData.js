@@ -81,7 +81,7 @@ const UserData = [
     gender: 'F',
   },
   {
-    id: 10,
+    id: 11,
     name: 'Cinthia Doe',
     age: 18,
     location: 'Bengaluru',
@@ -89,7 +89,7 @@ const UserData = [
     gender: 'F',
   },
   {
-    id: 10,
+    id: 12,
     name: 'Cinthia Doe',
     age: 18,
     location: 'Bengaluru',

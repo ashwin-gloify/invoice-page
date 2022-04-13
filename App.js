@@ -21,6 +21,7 @@ import { TabItem } from '@rneui/base/dist/Tab/Tab.Item';
 // import { Tab } from '@rneui/base';
 import Tab1 from './src/Screens/tab1/Tab1';
 import Tab2 from './src/Screens/tab2/Tab2';
+import FlatConsultation from './src/Screens/Consultation/FlatlistConsultation';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -33,6 +34,7 @@ const App = () => {
       <Drawer.Navigator initialRouteName="Consultation">
         <Drawer.Screen name="AddPatient" component={AddPatient} />
         <Drawer.Screen name="Consultation" component={ConsultationList} />
+        <Drawer.Screen name="FlatListConsultation" component={FlatConsultation} />
       </Drawer.Navigator>
       </NavigationContainer>
       // <Tab.Navigator>
