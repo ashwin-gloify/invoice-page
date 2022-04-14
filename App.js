@@ -24,25 +24,39 @@ import Tab2 from './src/Screens/tab2/Tab2';
 import FlatConsultation from './src/Screens/Consultation/FlatlistConsultation';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import SectionlistConsultation  from './src/Screens/Consultation/SectionlistConsultation';
+import Profile from './src/Components/Profile';
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
 
 const App = () => {
 
+  const ConsultationNav = () =>{
+    return(
+    <Stack.Navigator initialRouteName="SectionListConsultation">
+      <Stack.Screen
+        name="SectionListConsultation"
+        component={SectionlistConsultation}
+        options={{headerShown:false}}
+      />
+      <Stack.Screen name="Profile" options={{headerShown:false}} component={Profile} />
+    </Stack.Navigator>
+    );
+  };
+
   const DrawerNav = () =>{
     return (
       // <NavigationContainer>
       <Drawer.Navigator initialRouteName="Consultation">
         <Drawer.Screen name="AddPatient" component={AddPatient} />
-        <Drawer.Screen name="Consultation" component={ConsultationList} />
+        <Drawer.Screen name="Consultation" component={ConsultationNav} />
         <Drawer.Screen
           name="FlatListConsultation"
           component={FlatConsultation}
         />
         <Drawer.Screen
-          name="SectionListConsultation"
-          component={SectionlistConsultation}
+          name="ConsultationList"
+          component={ConsultationList}
         />
         <Drawer.Screen
           name="Tabs"

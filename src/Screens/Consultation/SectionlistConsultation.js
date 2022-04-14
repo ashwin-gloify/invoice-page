@@ -1,12 +1,24 @@
 /* eslint-disable prettier/prettier */
-import React from 'react';
-import {View, Text, Image, Button, SectionList, StyleSheet, DynamicColorIOS} from 'react-native';
+import React,  {useEffect, useState} from 'react';
+import {View, Text, Image, Button, SectionList, StyleSheet, TouchableOpacity ,DynamicColorIOS} from 'react-native';
 import sectionData from '../../Data/sectionData';
 // import Styles from './Styles';
 import FabModule from '../../Components/FabModule/FabModule';
 import UserData from '../../Data/UserData';
+// import Profile from '../../Components/Profile';
 
-const SectionlistConsultation = ({navigation}) => {
+
+const SectionlistConsultation = ({route, navigation}) => {
+  const [data, setData] = useState(UserData);
+
+  useEffect(() => {
+    if (route.params?.targetItem) {
+      let newData = data.filter((itemData) => itemData.id !== route.params?.targetItem.id);
+      setData(newData);
+    }
+  }, [route.params?.targetItem, data]);
+
+
   const footerItem = () => {
     return (
       <View>
@@ -19,7 +31,7 @@ const SectionlistConsultation = ({navigation}) => {
  
   const renderList = ({item}) => {
     return (
-      <View style={Styles.patientContainer}>
+      <TouchableOpacity style={Styles.patientContainer} onPress={()=>{navigation.navigate('Profile', {item});}}>
         <View style={Styles.col1}>
           <View style={Styles.imageView}>
             <Image
@@ -29,6 +41,7 @@ const SectionlistConsultation = ({navigation}) => {
           </View>
           <View style={Styles.userDetail}>
             <View style={Styles.nameView}>
+        
               <Text style={Styles.nameText}>{item.name}</Text>
             </View>
             <View style={Styles.details}>
@@ -47,7 +60,7 @@ const SectionlistConsultation = ({navigation}) => {
         <View style={Styles.col2}>
           <Text style={Styles.col2Text}>{item.time}</Text>
         </View>
-      </View>
+      </TouchableOpacity>
     );
   };
   return (
