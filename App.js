@@ -25,6 +25,7 @@ import FlatConsultation from './src/Screens/Consultation/FlatlistConsultation';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import SectionlistConsultation  from './src/Screens/Consultation/SectionlistConsultation';
 import Profile from './src/Components/Profile';
+import ComponentA from './src/Components/ComponentA';
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
@@ -70,18 +71,23 @@ const App = () => {
   const TabNav = () =>{
     return (
       // <NavigationContainer>
-        <Tab.Navigator>
-          <Tab.Screen
-            options={{headerShown: false}}
-            name="tab1"
-            component={Tab1}
-          />
-          <Tab.Screen
-            options={{headerShown: false}}
-            name="tab2"
-            component={Tab2}
-          />
-        </Tab.Navigator>
+      <Tab.Navigator>
+        <Tab.Screen
+          options={{headerShown: false}}
+          name="tab1"
+          component={Tab1}
+        />
+        <Tab.Screen
+          options={{headerShown: false}}
+          name="tab2"
+          component={Tab2}
+        />
+        <Tab.Screen
+          options={{headerShown: false}}
+          name="tab3"
+          component={ComponentA}
+        />
+      </Tab.Navigator>
       // </NavigationContainer>
     );
   };

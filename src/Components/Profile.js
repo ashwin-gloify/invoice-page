@@ -1,4 +1,5 @@
 /* eslint-disable prettier/prettier */
+// The aim of this component is to practice data passing through navigation and props.
 import { NavigationHelpersContext } from '@react-navigation/native';
 import React from 'react';
 import {View, Text, Button, StyleSheet}  from 'react-native';
@@ -23,8 +24,9 @@ const Profile = ({route, navigation}) =>{
             title="Drop Consultation with callback"
             style={Styles.cancelBTN}
             onPress={() => {
-              
-              navigation.navigate('SectionListConsultation',{ targetItem :  {item} });
+              navigation.navigate('SectionListConsultation', {
+                targetItem: {item},
+              });
             }}
           />
         </View>
@@ -54,9 +56,7 @@ const Styles = StyleSheet.create({
     alignItems: 'center',
   },
   detailsMain: {},
-  detailsText: {
-    color: '#000',
-  },
+
   BtnPrimary: {
     width: '40%',
     marginVertical: 10,
@@ -69,6 +69,9 @@ const Styles = StyleSheet.create({
   },
   cancelBTN: {
     marginBottom: 5,
+  },
+  detailsText: {
+    color: '#000',
   },
 });
 

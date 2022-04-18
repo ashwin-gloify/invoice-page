@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import React,  {useEffect, useState} from 'react';
 import {View, Text, Image, Button, SectionList, StyleSheet, TouchableOpacity ,DynamicColorIOS} from 'react-native';
 import sectionData from '../../Data/sectionData';
@@ -6,6 +5,7 @@ import sectionData from '../../Data/sectionData';
 import FabModule from '../../Components/FabModule/FabModule';
 import UserData from '../../Data/UserData';
 // import Profile from '../../Components/Profile';
+
 
 
 const SectionlistConsultation = ({route, navigation}) => {
