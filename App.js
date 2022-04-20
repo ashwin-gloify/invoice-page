@@ -26,6 +26,7 @@ import {createDrawerNavigator} from '@react-navigation/drawer';
 import SectionlistConsultation  from './src/Screens/Consultation/SectionlistConsultation';
 import Profile from './src/Components/Profile';
 import ComponentA from './src/Components/ComponentA';
+import TestComponent from './src/Components/TestComponent';
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
@@ -86,6 +87,11 @@ const App = () => {
           options={{headerShown: false}}
           name="tab3"
           component={ComponentA}
+        />
+        <Tab.Screen
+          options={{headerShown: false}}
+          name="tab4"
+          component={TestComponent}
         />
       </Tab.Navigator>
       // </NavigationContainer>
