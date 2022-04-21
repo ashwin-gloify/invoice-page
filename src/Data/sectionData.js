@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 const sectionData = [
   {
-    day: 'Today',
+    day: 'Consult Today',
     data: [
       {
         id: 1,
@@ -108,9 +108,24 @@ const sectionData = [
         time: '10:00 AM',
         gender: 'F',
       },
+      {
+        id: 13,
+        name: 'Cinthiani Doe',
+        age: 18,
+        location: 'Bengaluru',
+        time: '10:00 AM',
+        gender: 'F',
+      },
+      {
+        id: 14,
+        name: 'Cinthian J Doe',
+        age: 18,
+        location: 'Bengaluru',
+        time: '10:00 AM',
+        gender: 'F',
+      },
     ],
   },
-
 ];
 
 export default sectionData;

@@ -27,6 +27,7 @@ import SectionlistConsultation  from './src/Screens/Consultation/SectionlistCons
 import Profile from './src/Components/Profile';
 import ComponentA from './src/Components/ComponentA';
 import TestComponent from './src/Components/TestComponent';
+import ConsultationMain from './src/Screens/Consultation/ConsultationMain';
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
@@ -49,21 +50,20 @@ const App = () => {
   const DrawerNav = () =>{
     return (
       // <NavigationContainer>
-      <Drawer.Navigator initialRouteName="Consultation">
+      <Drawer.Navigator initialRouteName="ConsultationMain">
         <Drawer.Screen name="AddPatient" component={AddPatient} />
         <Drawer.Screen name="Consultation" component={ConsultationNav} />
+        <Drawer.Screen
+          name="ConsultationMain"
+          component={ConsultationMain}
+          options={{headerShown: false}}
+        />
         <Drawer.Screen
           name="FlatListConsultation"
           component={FlatConsultation}
         />
-        <Drawer.Screen
-          name="ConsultationList"
-          component={ConsultationList}
-        />
-        <Drawer.Screen
-          name="Tabs"
-          component={TabNav}
-        />
+        <Drawer.Screen name="ConsultationList" component={ConsultationList} />
+        <Drawer.Screen name="Tabs" component={TabNav} />
       </Drawer.Navigator>
       // </NavigationContainer>
     );

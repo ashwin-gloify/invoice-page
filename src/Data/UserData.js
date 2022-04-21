@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 const UserData = [
   {
     id: 1,
