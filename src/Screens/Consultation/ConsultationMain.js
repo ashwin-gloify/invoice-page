@@ -78,46 +78,17 @@ useEffect(()=>{
      dataSection = Object.values(item);
      
   } )
-  // console.log(keySection);
-  // console.log(dataSection);
+
   for(let i = 0; i<keySection.length;  i++){
     let tempObj = {};
      tempObj['date'] = keySection[i];
      tempObj['data'] = dataSection[i];
     sectionArr.push(tempObj);
-    // console.log(tempObj);
   }
   
   setModelData(sectionArr);
 
 },[sectionsData])
-
-
-//     const DataModel = () =>{
-//         let tempObj = {};
-//         let patientModel = [];
-//         patientData.map((item) => {
-//           if (tempObj[item.date]) {
-//             tempObj[item.date].push(item);
-//           } else {
-//             tempObj[item.date] = [];
-//             tempObj[item.date].push(item);
-//           }
-//         });
-//         patientModel.push(tempObj);
-//         console.log(patientModel[0]);
-
-//       setSectionsData(patientModel);
-     
-//     }
-// DataModel();
-    // console.log(sectionsData);
-      
-
-
-
-  
-
     
   const handleNameSearch = () =>{
     const searchResults =  patientData.filter(item => item.name.toLowerCase().includes(searchName.toLowerCase()) );
@@ -160,15 +131,6 @@ useEffect(()=>{
     );
   };
 
-
-  // const RenderSectionList = () =>{
-  //   console.log(sectionsData.map(item=> Object.keys(item)))
-  //   return (
-
-  //   )
-
-  // }
-  // RenderSectionList();
   return (
     <View style={Styles.containerMain}>
       <View style={Styles.listContainer}>

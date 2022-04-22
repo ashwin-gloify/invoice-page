@@ -28,6 +28,8 @@ import Profile from './src/Components/Profile';
 import ComponentA from './src/Components/ComponentA';
 import TestComponent from './src/Components/TestComponent';
 import ConsultationMain from './src/Screens/Consultation/ConsultationMain';
+import EditInvoice from './src/Screens/EditInvoice/EditInvoice';
+import FlatlistHorizontal from './src/Screens/FlatlistHorizontal';
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
@@ -50,7 +52,7 @@ const App = () => {
   const DrawerNav = () =>{
     return (
       // <NavigationContainer>
-      <Drawer.Navigator initialRouteName="ConsultationMain">
+      <Drawer.Navigator initialRouteName="FlatlistHorizontal">
         <Drawer.Screen name="AddPatient" component={AddPatient} />
         <Drawer.Screen name="Consultation" component={ConsultationNav} />
         <Drawer.Screen
@@ -64,6 +66,16 @@ const App = () => {
         />
         <Drawer.Screen name="ConsultationList" component={ConsultationList} />
         <Drawer.Screen name="Tabs" component={TabNav} />
+        <Drawer.Screen
+          name="EditInvoice"
+          options={{headerShown: false}}
+          component={EditInvoice}
+        />
+        <Drawer.Screen
+          name="FlatlistHorizontal"
+          options={{headerShown: false}}
+          component={FlatlistHorizontal}
+        />
       </Drawer.Navigator>
       // </NavigationContainer>
     );
