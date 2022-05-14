@@ -1,13 +1,35 @@
 /* eslint-disable prettier/prettier */
-import React from 'react';
-import {View, Text, Image, Button, ScrollView} from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {
+  View,
+  Text,
+  Image,
+  Button,
+  ScrollView,
+  TouchableOpacity,
+} from 'react-native';
 import UserData from '../../Data/UserData';
+import store from './../../redux/Store';
 import Styles from './Styles';
 import FabModule from '../../Components/FabModule/FabModule';
+import {delUser} from '../../redux/actions/delUser';
 // import { useNavigation } from '@react-navigation/native';
 
 const ConsultationList = ({navigation}) => {
   // const navigation = useNavigation();
+  //fetching state from store
+  const data = useSelector((state) => state.PatientDataReducer);
+  // console.log(data);
+  // const data = useSelector(state=> state.PatientDataReducer);
+  // console.log(data);
+  const dispatch = useDispatch();
+  const [selectData, setSelectData] = useState([]);
+  //adding a local state as effect
+  useEffect(() => {
+    setSelectData(data);
+  }, [data]);
+  console.log(selectData);
   return (
     <View style={Styles.containerMain}>
       <View style={Styles.containerHead}>
@@ -15,9 +37,13 @@ const ConsultationList = ({navigation}) => {
       </View>
       <ScrollView>
         <View style={Styles.listContainer}>
-          {UserData.map((item, index) => {
+          {/* mapping elements of data to render  */}
+          {selectData.map((item, index) => {
             return (
-              <View style={Styles.patientContainer} key={index}>
+              <TouchableOpacity
+                style={Styles.patientContainer}
+                key={index}
+                onPress={() => dispatch(delUser(item.id))}>
                 <View style={Styles.col1}>
                   <View style={Styles.imageView}>
                     <Image
@@ -45,12 +71,12 @@ const ConsultationList = ({navigation}) => {
                 <View style={Styles.col2}>
                   <Text style={Styles.col2Text}>{item.time}</Text>
                 </View>
-              </View>
+              </TouchableOpacity>
             );
           })}
         </View>
       </ScrollView>
-      <FabModule/>
+      <FabModule />
       <View style={Styles.btnPrimary}>
         <Button
           title="Go to AddPatient"

@@ -8,6 +8,8 @@ import {
   SafeAreaView,
   Button,
 } from 'react-native';
+import {useDispatch} from 'react-redux';
+import {setUser} from '../../redux/actions/SetUser';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -25,6 +27,7 @@ const AddPatient = ({ navigation }) =>{
   const [email, setEmail] =  useState('');
   const [relation, setRelation] = useState('');
   const [careGender, setCareGender] = useState('');
+  const dispatch = useDispatch();
 
   const handleCareGender = (item) =>{
     setCareGender(item);
@@ -32,6 +35,7 @@ const AddPatient = ({ navigation }) =>{
   const handleGender = (item) => {
     setGender(item);
   };
+  
   return (
     <SafeAreaView>
       <ScrollView>
@@ -45,12 +49,13 @@ const AddPatient = ({ navigation }) =>{
             <View style={styles.labelMatch}>
               <View style={styles.textInputStyle}>
                 <TextInput
-                  value={fName}
-                  onChangeText={(e) => setFName(e.target.value)}
+                  defaultValue={fName}
+                  onChangeText={(name) => setFName(name)}
                   style={styles.input}
                 />
               </View>
             </View>
+            {console.log(fName)}
           </View>
           <View style={styles.inputContainer}>
             <View style={styles.labelViewInput}>
@@ -61,8 +66,8 @@ const AddPatient = ({ navigation }) =>{
             <View style={styles.labelMatch}>
               <View style={styles.textInputStyle}>
                 <TextInput
-                  value={lName}
-                  onChangeText={(e) => setLName(e.target.value)}
+                  defaultValue={lName}
+                  onChangeText={(name) => setLName(name)}
                   style={styles.input}
                 />
               </View>
@@ -78,7 +83,7 @@ const AddPatient = ({ navigation }) =>{
               <View style={styles.textInputStyle}>
                 <TextInput
                   value={contact}
-                  onChangeText={(e) => setContact(e.target.value)}
+                  onChangeText={(num) => setContact(num)}
                   style={styles.input}
                   keyboardType="numeric"
                 />
@@ -197,8 +202,8 @@ const AddPatient = ({ navigation }) =>{
               </View>
               <View style={styles.textInputStyle}>
                 <TextInput
-                  value={age}
-                  onChangeText={(e) => setAge(e.target.value)}
+                  defaultValue={age}
+                  onChangeText={(num) => setAge(num)}
                   style={styles.input}
                 />
               </View>
@@ -478,7 +483,19 @@ const AddPatient = ({ navigation }) =>{
             <TouchableOpacity style={styles.button}>
               <Text style={styles.buttonText}>Save</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.buttonPrimary}>
+            <TouchableOpacity 
+              style={styles.buttonPrimary}
+              onPress={()=>{dispatch(
+                    setUser( {
+                    name: fName + ' ' + lName,
+                    age: age,
+                    location: 'Bengaluru',
+                    time: '10:00 AM',
+                    gender: 'M',
+                    day: 'Today',
+                  })
+                  ); }}
+            >
               <Text style={styles.buttonTextPrimary}>Save + Appointment</Text>
             </TouchableOpacity>
           </View>

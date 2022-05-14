@@ -1,5 +1,5 @@
 import React,  {useEffect, useState} from 'react';
-import {View, Text, Image, Button, SectionList, StyleSheet, TouchableOpacity ,DynamicColorIOS} from 'react-native';
+import {View, Text, Image, Button, SectionList, StyleSheet, TouchableOpacity } from 'react-native';
 import sectionData from '../../Data/sectionData';
 // import Styles from './Styles';
 import FabModule from '../../Components/FabModule/FabModule';

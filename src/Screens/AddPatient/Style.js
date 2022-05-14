@@ -27,6 +27,7 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 5,
     borderColor: '#c9c8c7',
+    color:'#000',
   },
   textView: {
     justifyContent: 'space-between',

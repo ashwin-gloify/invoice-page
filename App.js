@@ -9,6 +9,8 @@ import {
 } from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {Provider} from 'react-redux';
+import store from './src/redux/Store';
 import HeaderAddPatient from './src/Components/Header/HeaderAddPatient';
 import Index from './Screens/InvoiceScreen/Index';
 // import HeaderComponent from './src/Components/HeaderComponent';
@@ -30,6 +32,8 @@ import TestComponent from './src/Components/TestComponent';
 import ConsultationMain from './src/Screens/Consultation/ConsultationMain';
 import EditInvoice from './src/Screens/EditInvoice/EditInvoice';
 import FlatlistHorizontal from './src/Screens/FlatlistHorizontal';
+import StartConsultation from './src/Screens/Consultation/startConsultation/StartConsultation';
+import CombinedReducers from './src/Screens/ReduxPractice/CombinedReducers';
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
@@ -37,24 +41,39 @@ const Drawer = createDrawerNavigator();
 const App = () => {
 
   const ConsultationNav = () =>{
-    return(
-    <Stack.Navigator initialRouteName="SectionListConsultation">
-      <Stack.Screen
-        name="SectionListConsultation"
-        component={SectionlistConsultation}
-        options={{headerShown:false}}
-      />
-      <Stack.Screen name="Profile" options={{headerShown:false}} component={Profile} />
-    </Stack.Navigator>
+    return (
+      <Stack.Navigator
+        initialRouteName="StartConsultation"
+        options={{headerShown: false}}>
+        <Stack.Screen
+          name="SectionListConsultation"
+          component={SectionlistConsultation}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Profile"
+          options={{headerShown: true}}
+          component={Profile}
+        />
+        <Stack.Screen
+          name="StartConsultation"
+          options={{headerShown: false}}
+          component={StartConsultation}
+        />
+      </Stack.Navigator>
     );
   };
 
   const DrawerNav = () =>{
     return (
       // <NavigationContainer>
-      <Drawer.Navigator initialRouteName="FlatlistHorizontal">
+      <Drawer.Navigator initialRouteName="AddPatient">
         <Drawer.Screen name="AddPatient" component={AddPatient} />
-        <Drawer.Screen name="Consultation" component={ConsultationNav} />
+        <Drawer.Screen
+          name="Consultation"
+          options={{headerShown: false}}
+          component={ConsultationNav}
+        />
         <Drawer.Screen
           name="ConsultationMain"
           component={ConsultationMain}
@@ -75,6 +94,11 @@ const App = () => {
           name="FlatlistHorizontal"
           options={{headerShown: false}}
           component={FlatlistHorizontal}
+        />
+        <Drawer.Screen
+          name="CombinedRedux"
+          options={{headerShown: false}}
+          component={CombinedReducers}
         />
       </Drawer.Navigator>
       // </NavigationContainer>
@@ -110,7 +134,7 @@ const App = () => {
     );
   };
   return (
-
+    <Provider store={store}>
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen
@@ -135,6 +159,7 @@ const App = () => {
         /> */}
       </Stack.Navigator>
     </NavigationContainer>
+    </Provider>
   );
 };
 

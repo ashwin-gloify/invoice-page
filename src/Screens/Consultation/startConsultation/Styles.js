@@ -1,0 +1,205 @@
+import {StyleSheet} from 'react-native';
+import {
+    widthPercentageToDP as wp,
+    heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
+
+const Styles = StyleSheet.create({
+  scrollContainer: {
+    backgroundColor: '#fff',
+    paddingTop: hp('4%'),
+    paddingBottom: hp('4%'),
+    flexGrow: 1,
+  },
+  containerMain: {
+    flex: 1,
+    marginHorizontal: wp('4%'),
+  },
+  headerPanel: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  headerCol1: {
+    flex: 2,
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+  },
+  headerText: {
+    color: '#2A2A2A',
+    fontFamily: 'Poppins',
+    fontWeight: '600',
+    fontSize: wp('5%'),
+    paddingLeft: wp('2%'),
+  },
+  headerCol1Item: {},
+  headerCol2: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+  },
+  headerCol2Item: {
+    paddingHorizontal: wp('4%'),
+  },
+  imgStyle: {
+    width: 56,
+    height: 54,
+    borderRadius: 20,
+  },
+  detailsContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    paddingTop: hp('3%'),
+    alignItems: 'center',
+  },
+  detailsCol1: {
+    flex: 2,
+    justifyContent: 'flex-start',
+  },
+  nameText: {
+    fontFamily: 'Poppins',
+    fontWeight: '600',
+    fontSize: wp('6%'),
+    lineHeight: hp('4.5%'),
+    color: '#2B2B2B',
+  },
+  detailsText: {
+    color: '#9A9A9A',
+    fontFamily: 'Poppins',
+    fontWeight: '400',
+    fontSize: wp('3.5%'),
+  },
+  detailsCol2: {
+    paddingRight: wp('5.5%'),
+  },
+  bannerView: {
+    marginVertical: hp('2%'),
+    backgroundColor: 'rgba(36, 116, 112,0.05)',
+    height: hp('5%'),
+    justifyContent: 'center',
+  },
+  bannerText: {
+    color: '#247470',
+    paddingLeft: wp('6%'),
+  },
+
+  containerLabelText: {
+    fontFamily: 'Poppins',
+    fontWeight: '600',
+    fontSize: wp('5%'),
+    color: '#2B2B2B',
+    lineHeight: hp('4%'),
+  },
+  cardContainerWrapper: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    paddingTop: hp('1%'),
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  cardContainer: {
+    borderWidth: 0.5,
+    borderColor: '#CFCFCF',
+    width: wp('45%'),
+    height: hp('12.5%'),
+    alignItems: 'flex-start',
+    justifyContent: 'space-evenly',
+    marginTop: hp('1%'),
+    borderRadius: 6,
+  },
+  cardHead: {
+    paddingLeft: wp('4%'),
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+  },
+  cardIcon: {
+    backgroundColor: '#FFCC9E',
+    width: wp('6%'),
+    height: hp('3%'),
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: wp('4%'),
+    marginRight: wp('2%'),
+  },
+  cardNameText: {
+    color: '#000',
+    fontWeight: '500',
+    fontFamily: 'Poppins',
+    fontSize: wp('4%'),
+    lineHeight: hp('2%'), 
+  },
+  footerIcon: {
+    backgroundColor: 'rgba(36, 116, 112, 0.08)',
+    width: wp('6%'),
+    height: hp('3%'),
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: wp('4%'),
+    marginRight: wp('2%'),
+  },
+  cardFooter: {
+    flexDirection: 'row',
+    paddingLeft: wp('4%'),
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  footerText: {
+    fontFamily: 'Poppins',
+    fontWeight: '500',
+    fontSize: wp('3.5%'),
+    color: '#247470',
+  },
+  footerButtons: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    // backgroundColor:'green',
+  },
+  btnSec: {
+    flex: 1,
+    borderColor: '#247470',
+    borderWidth: 2,
+    borderRadius: 6,
+    backgroundColor: '#fff',
+    paddingVertical: hp('1.5%'),
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: wp('0.7%'),
+  },
+  btnPrimary: {
+    flex: 1,
+    borderColor: '#247470',
+    borderWidth: 2,
+    paddingVertical: hp('1.5%'),
+    marginLeft: wp('0.7%'),
+    borderRadius: 6,
+    backgroundColor: '#247470',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  btnPrimaryText: {
+    color: '#fff',
+    fontFamily: 'Poppins',
+    fontWeight: '600',
+    fontSize: wp('3.5%'),
+  },
+  btnSecText: {
+    color: '#247470',
+    fontFamily: 'Poppins',
+    fontWeight: '600',
+    fontSize: wp('3.5%'),
+  },
+  separator:{
+    flexDirection:'row',
+    backgroundColor:'#F5F5F5',
+    borderWidth:1,
+    opacity:0.7,
+
+  },
+});
+
+export default Styles;

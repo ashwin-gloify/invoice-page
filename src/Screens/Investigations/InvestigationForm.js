@@ -1,7 +1,6 @@
 /* eslint-disable prettier/prettier */
 import React, {useState} from 'react';
 import {View, Text, TextInput,StyleSheet, TouchableOpacity, SafeAreaView, Button} from 'react-native';
-import { panGestureHandlerCustomNativeProps } from 'react-native-gesture-handler/lib/typescript/handlers/PanGestureHandler';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import styles from '../AddPatient/Style';
 import { ScrollView } from 'react-native-gesture-handler';
